@@ -7,6 +7,12 @@ $ docker compose build
 ```
 $ docker compose run --rm aws
 ```
+aws, eb, amplifyコマンドが利用できます。
+```
+# aws
+# eb
+# amplify
+```
 
 # AWSプロファイルの作成
 ```
