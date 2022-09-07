@@ -1,0 +1,5 @@
+.amplify/*
+.aws/*
+.ssh/*
+app/*
+!.gitkeep
