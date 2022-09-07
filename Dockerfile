@@ -1,5 +1,5 @@
 FROM ubuntu:jammy
-RUN apt update && apt -y upgrade && apt -y install curl unzip git python3 virtualenv nodejs npm
+RUN apt update && apt -y upgrade && apt -y install curl unzip git python3 virtualenv nodejs npm groff
 RUN curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "/tmp/awscliv2.zip"
 RUN unzip /tmp/awscliv2.zip -d /tmp
 RUN /tmp/aws/install
