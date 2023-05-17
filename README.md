@@ -18,3 +18,11 @@ aws, eb, amplifyコマンドが利用できます。
 ```
 # aws configure [--profile PROFILE]
 ```
+
+# 各種コマンド実行時にアップデートがあると表示された場合
+
+Dockerイメージを再作成してください
+
+```
+$ docker compose build
+```
