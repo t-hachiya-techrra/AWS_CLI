@@ -1,0 +1,11 @@
+#!/bin/bash
+
+SERIAL_NUMBER=$(cat ~/.aws/mfa-serial-number)
+
+json=$(aws sts get-session-token --serial-number ${SERIAL_NUMBER} --token-code ${1})
+
+export AWS_ACCESS_KEY_ID=$(echo ${json} | sed -E 's/^.*"AccessKeyId": *"([^"]+)".*$/\1/')
+export AWS_SECRET_ACCESS_KEY=$(echo ${json} | sed -E 's/^.*"SecretAccessKey": *"([^"]+)".*$/\1/')
+export AWS_SESSION_TOKEN=$(echo ${json} | sed -E 's/^.*"SessionToken": *"([^"]+)".*$/\1/')
+
+env | grep AWS

@@ -1,4 +1,6 @@
 
+export PATH=/root/bin:$PATH
+
 chmod 700 /root/.ssh
 if ls /root/.ssh/* > /dev/null 2>&1
 then

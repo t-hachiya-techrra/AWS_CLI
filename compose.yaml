@@ -6,4 +6,5 @@ services:
       - ./.amplify:/root/.amplify
       - ./.aws:/root/.aws
       - ./.ssh:/root/.ssh
+      - ./bin:/root/bin
       - ./app:/app
