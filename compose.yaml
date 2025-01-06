@@ -6,5 +6,3 @@ services:
       - ./.aws:/root/.aws
       - ./.ssh:/root/.ssh
       - ./app:/app
-      - ./startup.sh:/root/startup.sh
-    command: /bin/bash --init-file /root/startup.sh
