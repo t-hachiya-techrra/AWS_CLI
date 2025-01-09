@@ -11,6 +11,7 @@ RUN apt-get update && apt-get install -y \
     jq \
     nodejs \
     npm \
+    groff \
     && apt-get clean \
     && rm -rf /var/lib/aptlists/*
 
