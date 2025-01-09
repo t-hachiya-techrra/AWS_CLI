@@ -12,6 +12,7 @@ RUN apt-get update && apt-get install -y \
     nodejs \
     npm \
     groff \
+    socat \
     && apt-get clean \
     && rm -rf /var/lib/aptlists/*
 
