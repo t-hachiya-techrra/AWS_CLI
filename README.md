@@ -1,11 +1,16 @@
 # Dockerイメージの作成
 ```
-$ docker compose build
+$ make build
+```
+
+# Dockerイメージの再作成
+```
+$ make rebuild
 ```
 
 # 実行方法
 ```
-$ docker compose run --rm aws
+$ make run
 ```
 aws, eb, amplifyコマンドが利用できます。
 ```
@@ -24,5 +29,5 @@ aws, eb, amplifyコマンドが利用できます。
 Dockerイメージを再作成してください
 
 ```
-$ docker compose build
+$ make rebuild
 ```

@@ -1,10 +1,13 @@
 services:
   aws:
     build: .
+    environment:
+      - HOST_UID=${HOST_UID}
+      - HOST_GID=${HOST_GID}
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
-      - ./.amplify:/root/.amplify
-      - ./.aws:/root/.aws
-      - ./.ssh:/root/.ssh
-      - ./bin:/root/bin
+      - ./.amplify:/home/ubuntu/.amplify
+      - ./.aws:/home/ubuntu/.aws
+      - ./.ssh:/home/ubuntu/.ssh
+      - ./bin:/home/ubuntu/bin
       - ./app:/app

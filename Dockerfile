@@ -13,6 +13,7 @@ RUN apt-get update && apt-get install -y \
     npm \
     groff \
     socat \
+    gosu \
     && apt-get clean \
     && rm -rf /var/lib/aptlists/*
 
@@ -37,13 +38,15 @@ RUN apt-get update && apt-get install -y \
 
 # Install Elastic Beanstalk CLI
 RUN git clone https://github.com/aws/aws-elastic-beanstalk-cli-setup.git /tmp/aws-elastic-beanstalk-cli-setup \
-    && python3 /tmp/aws-elastic-beanstalk-cli-setup/scripts/ebcli_installer.py \
+    && python3 /tmp/aws-elastic-beanstalk-cli-setup/scripts/ebcli_installer.py --location /usr/local/ebcli \
     && rm -rf /tmp/aws-elastic-beanstalk-cli-setup
-ENV PATH /root/.ebcli-virtual-env/executables:$PATH
+ENV PATH=/usr/local/ebcli/.ebcli-virtual-env/executables:$PATH
 
 # Install AWS Amplify CLI (Gen 1)
 RUN npm install -g @aws-amplify/cli
 
-COPY bash_profile /root/.bash_profile
-CMD [ "/bin/bash", "--login" ]
+RUN userdel -r ubuntu
+COPY ./docker-entrypoint.sh /
+ENTRYPOINT ["/docker-entrypoint.sh"]
+CMD [ "/bin/bash" ]
 WORKDIR /app
